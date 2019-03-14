@@ -14,4 +14,16 @@
         where cityid =1
     </select>
 
+    <select id="getDicZoneAllList_SENSOR1A" resultMap="BaseResultMap" parameterType="map">
+        select  cityid,PARENTNAME,regionid,name
+        from DIC_ZONE_ALL
+        where cityid =2
+    </select>
+
+    <select id="getDicZoneAllList_SENSOR2A" resultMap="BaseResultMap" parameterType="map">
+        select  cityid,PARENTNAME,regionid,name
+        from DIC_ZONE_ALL
+        where cityid =#{cityid}
+    </select>
+
 </mapper>

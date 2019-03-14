@@ -10,7 +10,14 @@ import java.util.Map;
 public interface GetDicZoneAllDao {
 
 
+    /**
+     * @param map
+     * @return
+     */
     public List<DicZoneAllEntity> getDicZoneAllList(Map map);
 
+    public List<DicZoneAllEntity> getDicZoneAllList_SENSOR1A(Map map);
+
+    public List<DicZoneAllEntity> getDicZoneAllList_SENSOR2A(Map map);
 
 }

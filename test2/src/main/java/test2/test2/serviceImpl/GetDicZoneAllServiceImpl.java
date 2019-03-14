@@ -1,5 +1,6 @@
 package test2.test2.serviceImpl;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,22 @@ public class GetDicZoneAllServiceImpl implements GetDicZoneAllService {
         String test123 = jedisCluster.get("test123");
 
         System.out.println("---redis---"+test123);
+    }
+
+    @DS("master")
+    @Override
+    public List<DicZoneAllEntity> getDicZoneAllList_SENSOR1A(Map map) {
+        System.out.println("走master---sensor1A");
+        List<DicZoneAllEntity> list = getDicZoneAllDao.getDicZoneAllList_SENSOR1A(map);
+        return list;
+    }
+    @DS("slave_1")
+    @Override
+    public List<DicZoneAllEntity> getDicZoneAllList_SENSOR2A(Map map) {
+        System.out.println("走slave---sensor2A");
+        map.put("cityid","197");
+        List<DicZoneAllEntity> list = getDicZoneAllDao.getDicZoneAllList_SENSOR2A(map);
+        return list;
     }
 
 }

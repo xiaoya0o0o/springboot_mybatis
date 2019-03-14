@@ -31,4 +31,18 @@ public class GetDicZoneAllController {
     public void redisTest(){
         getDicZoneAllService.redisTest();
     }
+
+    @RequestMapping(value = "/getlist1")
+    public List<DicZoneAllEntity> getList1() {
+        Map map = new HashMap();
+        List<DicZoneAllEntity> list = getDicZoneAllService.getDicZoneAllList_SENSOR1A(map);
+        return list;
+    }
+
+    @RequestMapping(value = "/getlist2")
+    public List<DicZoneAllEntity> getList2() {
+        Map map = new HashMap();
+        List<DicZoneAllEntity> list = getDicZoneAllService.getDicZoneAllList_SENSOR2A(map);
+        return list;
+    }
 }

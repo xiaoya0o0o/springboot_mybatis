@@ -4,37 +4,56 @@ mybatis:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://x:x/test?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
-    username: x
-    password: x
-  freemarker:
-    allow-request-override: false
-    allow-session-override: false
-    cache: false
-    charset: UTF-8
-    check-template-location: true
-    content-type: text/html
-    enabled: true
-    expose-request-attributes: false
-    expose-session-attributes: false
-    expose-spring-macro-helpers: true
-    prefer-file-system-access: true
-    suffix: .ftl
-    template-loader-path: classpath:/templates/
-    settings:
-      template_update_delay: 0
-      default_encoding: UTF-8
-      classic_compatible: true
+    dynamic:
+      p6spy: true
+      primary: master
+      datasource:
+        master:
+          username: x
+          password: x
+          url: jdbc:mysql://x:x/x
+          driver-class-name: com.mysql.jdbc.Driver
+          druid: #è¿™é‡Œå¯ä»¥é‡å†™é»˜è®¤å€¼
+            initial-size: 5
+        slave_1:
+          username: x
+          password: x
+          url: jdbc:mysql://x:x/x
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            initial-size: 6
 
-# redis¼¯Èº
+  #    driver-class-name: com.mysql.jdbc.Driver
+  #    url: jdbc:mysql://x:xx?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+  #    username: x
+  #    password: x
+  #  freemarker:
+  #    allow-request-override: false
+  #    allow-session-override: false
+  #    cache: false
+  #    charset: UTF-8
+  #    check-template-location: true
+  #    content-type: text/html
+  #    enabled: true
+  #    expose-request-attributes: false
+  #    expose-session-attributes: false
+  #    expose-spring-macro-helpers: true
+  #    prefer-file-system-access: true
+  #    suffix: .ftl
+  #    template-loader-path: classpath:/templates/
+  #    settings:
+  #      template_update_delay: 0
+  #      default_encoding: UTF-8
+  #      classic_compatible: true
+
+  # redisï¿½ï¿½Èº
   redis:
     cluster:
       nodes: x:x,x:x,x:x,x:x,x:x,x:x
-    password: x
+    password: passw0rd2
 
 
-# µ¥¸öredis·şÎñ
+# ï¿½ï¿½ï¿½ï¿½redisï¿½ï¿½ï¿½ï¿½
 #  redis:
 #    database: 0
 #    host: x

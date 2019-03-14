@@ -18,7 +18,7 @@ public class RedisConfig {
     private int connectionTimeout = 60000;
     private int soTimeout = 60000;
     private int maxAttempts = 6;
-
+//    private String pass2 = "passw0rd2";
     @Value("${spring.redis.password}")
     private String pass2;
 
